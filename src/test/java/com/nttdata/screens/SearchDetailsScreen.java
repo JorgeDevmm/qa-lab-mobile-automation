@@ -1,13 +1,17 @@
 package com.nttdata.screens;
 
+
+
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import net.serenitybdd.core.pages.PageObject;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class SearchDetailsScreen extends PageObject {
+
+
 
     //@AndroidFindBy(id="search_input")
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@resource-id=\"com.airbnb.android:id/stays_where_panel_compose\"]/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]")
@@ -35,7 +39,8 @@ public class SearchDetailsScreen extends PageObject {
     @AndroidFindBy(id = "com.airbnb.android:id/n2_dls_action_footer_gradient_button")
     private WebElement searchButton;
 
-    //    espera
+
+
     public void esperaElemento(WebElement elemento) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), 20);
@@ -45,6 +50,7 @@ public class SearchDetailsScreen extends PageObject {
             System.out.println("El error es " + e);
         }
     }
+
 
 
     public void enterSearchInput(String place) {
