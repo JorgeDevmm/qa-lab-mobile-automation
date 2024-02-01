@@ -13,7 +13,8 @@ public class AirbnbSearchSteps {
 
     @Step("Click en cerrar")
     public void clickClose() {
-        loginScreen.clickClose();
+//        loginScreen.clickClose();
+        loginScreen.clickImg();
     }
 
     @Step("Búsqueda por texto {0}")

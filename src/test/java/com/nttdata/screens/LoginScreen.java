@@ -13,15 +13,27 @@ public class LoginScreen extends PageObject {
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Close\"]")
     private WebElement btnClose;
 
-    public void clickClose(){
+//    Adjunto evidencias de la 2DA PREGUNTA ,donde se muestro el otro tipo de localizador, y también el código java usado para que funcione.
+    @AndroidFindBy(className = "android.widget.ImageButton")
+    private WebElement imageButton;
+
+//    Codigo java aplicado
+    public void clickImg(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+        wait.until(ExpectedConditions.elementToBeClickable(imageButton));
+        getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+        imageButton.click();
+    }
+
+        public void clickClose(){
 
         WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.elementToBeClickable(btnClose));
         getDriver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 
         btnClose.click();
-
-
-
     }
+
+
 }
