@@ -1,6 +1,7 @@
 package com.nttdata.stepsdefinitions;
 
 import com.nttdata.steps.AirbnbSearchSteps;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,14 +20,31 @@ public class AirbnbSearchStepsDefs {
 
         airbnbSearchSteps.clickClose();
     }
+
     @When("busco {string}")
     public void busco(String place) {
         airbnbSearchSteps.searchByText(place);
     }
+
     @Then("muestra el texto {string}")
     public void muestra_el_texto(String text) {
 
         Assert.assertEquals(airbnbSearchSteps.getResultText(), text);
     }
 
+
+    @And("hago clic en el boton skip")
+    public void hagoClicEnElBotonSkip() {
+        airbnbSearchSteps.clicSkip();
+    }
+
+    @And("hago clic en Search")
+    public void hagoClicEnSearch() {
+        airbnbSearchSteps.clicSearch();
+    }
+
+    @And("hago clic en icono Map")
+    public void hagoClicEnIconoMap() {
+        airbnbSearchSteps.clicMap();
+    }
 }

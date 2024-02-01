@@ -10,13 +10,16 @@ public class SearchScreen extends PageObject {
     private WebElement searchInput;
 
     @AndroidFindBy(id = "2131431007")
+//    @AndroidFindBy()
     private WebElement resultText;
 
-    public void clickSearchInput(){
+
+    public void clickSearchInput() {
         searchInput.click();
     }
 
-    public String getResultText(){
+    public String getResultText() {
         return resultText.getText();
     }
+
 }

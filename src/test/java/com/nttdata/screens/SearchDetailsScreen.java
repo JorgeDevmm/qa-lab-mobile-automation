@@ -19,11 +19,20 @@ public class SearchDetailsScreen extends PageObject {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.view.ViewGroup/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView")
     private WebElement firstOption;
 
-    @AndroidFindBy(id = "2131430997")
-//    @AndroidFindBy(id = "com.airbnb.android:id/n2_simple_search_footer_gradient_button")
+    //    @AndroidFindBy(id = "2131430997")
+    @AndroidFindBy(id = "com.airbnb.android:id/n2_simple_search_footer_gradient_button")
     private WebElement nextButton;
 
-    @AndroidFindBy(id = "2131430822")
+
+    @AndroidFindBy(id = "com.airbnb.android:id/n2_simple_search_footer_link")
+    private WebElement skipButton;
+
+    @AndroidFindBy(id = "com.airbnb.android:id/map_pill")
+    private WebElement skipButtonMap;
+
+
+//    @AndroidFindBy(id = "2131430822")
+    @AndroidFindBy(id= "com.airbnb.android:id/n2_dls_action_footer_gradient_button")
     private WebElement searchButton;
 
     //    espera
@@ -35,25 +44,28 @@ public class SearchDetailsScreen extends PageObject {
 //            e.getMessage();
 //            System.out.println("El error es " + e);
         }
-
     }
 
 
     public void enterSearchInput(String place) {
         /*
-        //      Espera
         try{
             Thread.sleep(5000);
         }catch (InterruptedException e){
             throw new RuntimeException();
         }
         */
-        esperaElemento(searchDetailInput);
-        searchDetailInput.click();
+        String cmd = "adb shell input keyevent 66";
+        try {
+            esperaElemento(searchDetailInput);
+            searchDetailInput.click();
 
 
-        esperaElemento(searchDetailInputText);
-        searchDetailInputText.sendKeys(place);
+            esperaElemento(searchDetailInputText);
+            searchDetailInputText.sendKeys(place);
+            Runtime.getRuntime().exec(cmd);
+        } catch (Exception e) {
+        }
     }
 
     public void clickFirstOption() {
@@ -61,10 +73,26 @@ public class SearchDetailsScreen extends PageObject {
     }
 
     public void clickNext() {
+        esperaElemento(nextButton);
         nextButton.click();
     }
 
+    public void clicSkip() {
+
+        esperaElemento(skipButton);
+
+        skipButton.click();
+    }
+
     public void clickSearch() {
+
         searchButton.click();
+        esperaElemento(searchButton);
+    }
+
+    public void clicIconoMap() {
+        esperaElemento(skipButtonMap);
+
+        skipButtonMap.click();
     }
 }

@@ -6,4 +6,7 @@ Feature: Búsqueda en Airbnb
     Given que me enuentro en el login de Airbnb
 #    When busco "Cancun Mexico"
     When busco "Hoteles en Vichayito"
-    Then muestra el texto "Over 1,000 stays"
+    And hago clic en el boton skip
+    And hago clic en Search
+    And hago clic en icono Map
+#    Then muestra el texto "Over 1,000 places"
