@@ -18,11 +18,7 @@ public class AirbnbSearchSteps {
 
     @Step("Búsqueda por texto {0}")
     public void searchByText(String place) {
-        searchScreen.clickSearchInput();
         searchDetailsScreen.enterSearchInput(place);
-//        searchDetailsScreen.clickFirstOption();
-//        searchDetailsScreen.clickNext();
-//        searchDetailsScreen.clickSearch();
     }
 
     @Step("Obtiene el texto del resultado")
@@ -41,4 +37,10 @@ public class AirbnbSearchSteps {
     public void clicMap() {
         searchDetailsScreen.clicIconoMap();
     }
+
+    public void clicInput() {
+        searchScreen.clickSearchInput();
+    }
+
+
 }

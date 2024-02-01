@@ -31,8 +31,8 @@ public class SearchDetailsScreen extends PageObject {
     private WebElement skipButtonMap;
 
 
-//    @AndroidFindBy(id = "2131430822")
-    @AndroidFindBy(id= "com.airbnb.android:id/n2_dls_action_footer_gradient_button")
+    //    @AndroidFindBy(id = "2131430822")
+    @AndroidFindBy(id = "com.airbnb.android:id/n2_dls_action_footer_gradient_button")
     private WebElement searchButton;
 
     //    espera
@@ -41,25 +41,18 @@ public class SearchDetailsScreen extends PageObject {
             WebDriverWait wait = new WebDriverWait(getDriver(), 20);
             wait.until(ExpectedConditions.elementToBeClickable(elemento));
         } catch (Exception e) {
-//            e.getMessage();
-//            System.out.println("El error es " + e);
+            e.getMessage();
+            System.out.println("El error es " + e);
         }
     }
 
 
     public void enterSearchInput(String place) {
-        /*
-        try{
-            Thread.sleep(5000);
-        }catch (InterruptedException e){
-            throw new RuntimeException();
-        }
-        */
+
         String cmd = "adb shell input keyevent 66";
         try {
             esperaElemento(searchDetailInput);
             searchDetailInput.click();
-
 
             esperaElemento(searchDetailInputText);
             searchDetailInputText.sendKeys(place);

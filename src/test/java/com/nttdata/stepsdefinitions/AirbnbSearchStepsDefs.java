@@ -15,28 +15,26 @@ public class AirbnbSearchStepsDefs {
     @Steps
     AirbnbSearchSteps airbnbSearchSteps;
 
-//    @Given("que me enuentro en el login de Airbnb")
-//    public void que_me_encuentro_en_el_login_de_airbnb() {
-//
-//        airbnbSearchSteps.clickClose();
-//    }
-
-    @Given("que me encuentro en el login de Airbnb")
-    public void queMeEncuentroEnElLoginDeAirbnb() {
+    @Given("me encuentro en la pagina inicio de sesion y cierro la ventana")
+    public void meEncuentroEnLaPaginaInicioDeSesionYCierroLaVentana() {
         airbnbSearchSteps.clickClose();
     }
 
-    @When("busco {string}")
+    @When("se visualiza pagina principal, e ingreso el lugar o hospedaje a buscar en la ventana de texto")
+    public void seVisualizaPaginaPrincipalEIngresoElLugarOHospedajeABuscarEnLaVentanaDeTexto() {
+        airbnbSearchSteps.clicInput();
+    }
+
+    @And("busco {string}")
     public void busco(String place) {
         airbnbSearchSteps.searchByText(place);
     }
 
-    @Then("muestra el texto {string}")
-    public void muestra_el_texto(String text) {
 
+    @Then("valido el texto {string}")
+    public void validoElTexto(String text) {
         Assert.assertEquals(airbnbSearchSteps.getResultText(), text);
     }
-
 
     @And("hago clic en el boton skip")
     public void hagoClicEnElBotonSkip() {
@@ -52,6 +50,7 @@ public class AirbnbSearchStepsDefs {
     public void hagoClicEnIconoMap() {
         airbnbSearchSteps.clicMap();
     }
+
 
 
 }
