@@ -91,8 +91,6 @@ public class SearchDetailsScreen extends PageObject {
     }
 
     public void clicIconoMap() {
-        esperaElemento(skipButtonMap);
-
         skipButtonMap.click();
     }
 }

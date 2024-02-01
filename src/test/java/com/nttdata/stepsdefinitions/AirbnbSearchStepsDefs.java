@@ -15,9 +15,14 @@ public class AirbnbSearchStepsDefs {
     @Steps
     AirbnbSearchSteps airbnbSearchSteps;
 
-    @Given("que me enuentro en el login de Airbnb")
-    public void que_me_enuentro_en_el_login_de_airbnb() {
+//    @Given("que me enuentro en el login de Airbnb")
+//    public void que_me_encuentro_en_el_login_de_airbnb() {
+//
+//        airbnbSearchSteps.clickClose();
+//    }
 
+    @Given("que me encuentro en el login de Airbnb")
+    public void queMeEncuentroEnElLoginDeAirbnb() {
         airbnbSearchSteps.clickClose();
     }
 
@@ -47,4 +52,6 @@ public class AirbnbSearchStepsDefs {
     public void hagoClicEnIconoMap() {
         airbnbSearchSteps.clicMap();
     }
+
+
 }

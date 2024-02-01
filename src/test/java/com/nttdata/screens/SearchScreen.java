@@ -9,8 +9,8 @@ public class SearchScreen extends PageObject {
     @AndroidFindBy(id = "com.airbnb.android:id/search_bar")
     private WebElement searchInput;
 
-    @AndroidFindBy(id = "2131431007")
-//    @AndroidFindBy()
+//    @AndroidFindBy(id = "2131431007")
+    @AndroidFindBy(id = "com.airbnb.android:id/n2_bottom_sheet_title_title")
     private WebElement resultText;
 
 
@@ -19,6 +19,7 @@ public class SearchScreen extends PageObject {
     }
 
     public String getResultText() {
+
         return resultText.getText();
     }
 
